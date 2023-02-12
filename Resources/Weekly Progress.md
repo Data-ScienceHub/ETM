@@ -3,7 +3,7 @@
 ### 1/22/2023
 - Finalized the initial data features to use for the initial model.
 - The initial features to be used are: event type and event timestamp. The time gaps will be used to predict which users will return.
-- Finalized the [budget proposal](https://github.com/Data-ScienceHub/ETM/blob/main/Resources/Final%20Project%20Report.pdf) using AWS and Snowflake calculators. 
+- Finalized the [budget proposal](https://github.com/Data-ScienceHub/ETM/blob/main/Resources/Budget%20Proposal.pdf) using AWS and Snowflake calculators. 
 
 ### 1/29/2023
 - Created an initial model proposal.
