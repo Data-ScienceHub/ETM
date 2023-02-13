@@ -26,3 +26,7 @@
 - The model produced an accuracy of ~67% on the testing set, but the model's room for improvement seems capped by the quality and content of the available data
 - Given the nature of collection and the way events are triggered, patterns in the sequence proved to be more difficult more the model to discern than expected
 - Having discovered this, we were prompted to reevaluate the feature selection process and consider how the model could be adapted
+- We proceeded to perform an enhanced feature EDA and identified at least 4 new attributes which could be incorporated into our model
+- We also with our sponsor, laid out the current situation, and discussed ways in which we could steer the current project path towards clearer success
+- Ultimately, we determined to pursue a new, slightly modified approach which will be able to build off the the work previously accomplished and hopefully yield more tangible results for our client
+- The pivoted proposal is to now construct an MLP which will identify users likely to solidify their engagement through subscription and not simply be short-term binge consumers of journal content
