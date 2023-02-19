@@ -114,11 +114,13 @@ EDA notebooks can be found [here](https://github.com/Data-ScienceHub/ETM/tree/ma
 
 ### Retention Model Path Forward
 
-#### User Archetype Approximations
+#### Proposed Model 1
+
+##### User Archetype Approximations
 
 ![User Archetype Approximations](methods.png)
 
-#### Propose Modeling Technique
+##### Propose Modeling Technique
 - Leverage idle time interval as special event to denote period of disengagement​
     - Mark as idle if greater than 95% of users' event gaps​
     - Preliminary value of ~73 hours of idle time between event cycles per user (~280 hours as initial benchmark for churned out based on 90% quantile of users' maximum event gaps)​
@@ -126,6 +128,39 @@ EDA notebooks can be found [here](https://github.com/Data-ScienceHub/ETM/tree/ma
     - Then, use most recent completed sequence to predict whether the user will return​
 - Sequence length of interest appears to be 16-48 events​
 - Next steps would be to encode sequences of the desired lengths and to perform training for both sequence prediction and classification
+
+#### Proposed Model 2
+
+##### Goal
+- Predict whether users who have already performed over 40 events ​will return to perform at least another 40 events
+
+##### Input Data
+- Use data from the following tables:
+    - Event
+    - Profile
+    - Content
+    - Organization
+- Data will be filtered down to profiles with over 40 events
+
+##### Features
+- The model will focus on using the following features:
+    - Number of unique articles read by the user
+    - Number of activity cycles for the user
+    - Percent of articles reached through Google
+    - Average content score of articles read by the user
+    - Percent of content read by the user that is an article
+    - Time taken for the user to reach 40 events
+
+##### Output
+- Probability that a given user will perform 40 additional events
+- Tuning Options:
+    - Events required for users to be included in the model
+    - Event threshold to define whether users return successfully
+    - Features included (if users provided their emails, etc) 
+
+##### Outline
+
+![Proposed Model 2](model_2.png)
 
 ## Conclusions & Future Work
 
