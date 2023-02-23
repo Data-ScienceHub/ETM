@@ -30,3 +30,12 @@
 - We also with our sponsor, laid out the current situation, and discussed ways in which we could steer the current project path towards clearer success
 - Ultimately, we determined to pursue a new, slightly modified approach which will be able to build off the the work previously accomplished and hopefully yield more tangible results for our client
 - The pivoted proposal is to now construct an MLP which will identify users likely to solidify their engagement through subscription and not simply be short-term binge consumers of journal content
+
+### 2/20/2023
+- Revisited all of the tables in our database to explore what other features we might engineer to reconfigure our model
+- Focused primarily on the tables such as Event, Content, Profile, and Organization
+- Reimagined the goal and scope of our data's predictive capabilities
+- Established a new definition for good user engagement and determined how to extract that from our data
+- Opted to base user quality on number of interactions rather than duration or subscriptions tendencies
+- Crystallized our vision for a new model which will take 6 numeric inputs and output a binary prediction regarding their propensity to continue consuming content
+- Drafted our Progress Report 1
