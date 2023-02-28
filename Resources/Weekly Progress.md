@@ -39,3 +39,11 @@
 - Opted to base user quality on number of interactions rather than duration or subscriptions tendencies
 - Crystallized our vision for a new model which will take 6 numeric inputs and output a binary prediction regarding their propensity to continue consuming content
 - Drafted our Progress Report 1
+
+### 2/27/2023
+- Revised Progress Report 1 and reconfigured it into IEEE format
+- Finished processing data into newly engineered features
+- Built a preliminary model framework and performed initial training
+- Discovered that the class conditional feature densities are not currently statistically significant...
+- Brainstormed new thresholds to consider as hyperparameters when segmenting the users into classes
+- Is clustering a viable option?
