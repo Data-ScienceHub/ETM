@@ -57,6 +57,50 @@ class SnowparkConnector:
         
         return query_df
     
+    def query_snowpark_json(self, query):
+        '''
+        Purpose: Runs a query on snowpark and returns a json list with the results
+
+        INPUTS:
+        query - Snowflake query to run
+
+        OUTPUTS:
+        query_json - json list with the query results
+        '''
+
+        query_json = []
+        try:
+            print('Querying from Snowpark...')
+            query_results = self.session.sql(query).collect()
+            print('Snowpark query done')
+            
+            query_json = list(map(lambda x: x.as_dict(), query_results))
+        except Exception as e:
+            print('Error querying from Snowpark:', e)
+        
+        return query_json
+    
+    def query_snowpark_results(self, query):
+        '''
+        Purpose: Runs a query on snowpark and returns a list of Snowpark objects
+
+        INPUTS:
+        query - Snowflake query to run
+
+        OUTPUTS:
+        query_results - list of Snowpark objects with the query results
+        '''
+
+        query_results = []
+        try:
+            print('Querying from Snowpark...')
+            query_results = self.session.sql(query).collect()
+            print('Snowpark query done')
+        except Exception as e:
+            print('Error querying from Snowpark:', e)
+        
+        return query_results
+    
     def close_session(self):
         '''
         Purpose: Closes a snowpark session after running all queries needed.
