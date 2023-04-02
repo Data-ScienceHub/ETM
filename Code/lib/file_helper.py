@@ -5,7 +5,7 @@ class FileHelper:
     Python class for various file operations
     '''
 
-    def __init__():
+    def __init__(self):
         '''
         Purpose: creates a new helper for various file actions
         '''

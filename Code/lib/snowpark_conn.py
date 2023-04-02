@@ -105,4 +105,4 @@ class SnowparkConnector:
         '''
         Purpose: Closes a snowpark session after running all queries needed.
         '''
-        self.session.close_session()
+        self.session.close()
