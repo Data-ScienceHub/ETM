@@ -8,7 +8,7 @@ Below is the schema provided by Hum:
 
 ![Hum Schema](hum_schema.png)
 
-Our project will mainly use the **Event** and **Profile** tables
+Our project will mainly use the **Event**, **Profile**, and **Content** tables
 
 
 ## Data Description
@@ -65,3 +65,67 @@ Our project will mainly use the **Event** and **Profile** tables
 | METRICS             | VARIANT (JSON) | To be discussed with Hum                                                      |
 | PERCENTILES         | VARIANT (JSON) | To be discussed with Hum                                                      |
 | USER_SIDS           | ARRAY          | To be discussed with Hum                                                      |
+
+### Content:
+
+| Column          | Type      | Description                                                                   |
+|-----------------|-----------|-------------------------------------------------------------------------------|
+| CLIENT          | VARCHAR   | ID for the client. For this project: "rup" for "Rockefeller University Press" |
+| ID              | VARCHAR   | Unique ID for the row. Connects with Event set_profile                        |
+| CONTENT_ID      | VARCHAR   | Unique ID for each content                                                    |
+| KEYWORDS        | ARRAY     | Keywords associated with a content                                            |
+| DOWNLOAD_SLIDE  | DOUBLE    | Number of times the content had a download slide event                        |
+| PDF_CLICK       | DOUBLE    | Number of times the content had a PDF click event                             |
+| PAGEVIEW        | DOUBLE    | Number of times the content had a page view event                             |
+| POST_READ       | DOUBLE    | Number of times the content had a post read event                             |
+| POST_READ_MID   | DOUBLE    | Number of times the content had a post read mid event                         |
+| POST_READ_START | DOUBLE    | Number of times the content had a post read start event                       |
+| POST_READ_END   | DOUBLE    | Number of times the content had a post read end event                         |
+| SCROLL          | DOUBLE    | Number of times the content had a scroll event                                |
+| EXCERPT         | VARCHAR   | Text excerpt from the content                                                 |
+| CONTENT         | VARCHAR   | Description of the content                                                    |
+| SCORE           | DOUBLE    | Sum of all the event columns                                                  |
+| SOURCE          | VARCHAR   | Source of the content                                                         |
+| TITLE           | VARCHAR   | Title of the content                                                          |
+| TYPE            | VARCHAR   | Type of the content                                                           |
+| URL             | VARCHAR   | URL of the content                                                            |
+| CREATED         | TIMESTAMP | Timestamp of when a content was created                                       |
+| UPDATED         | TIMESTAMP | Timestamp of when a content was updated                                       |
+
+## Query Columns
+
+- Final queries used can be found at `/Code/lib/snowpark_runner.py`
+
+- Difference between classification & clustering queries:
+    - Classification: comptues features using the first **X** events of a user
+    - Clustering: computes features using **all** events of a user
+
+- Queries from the start of 2022 to the current date
+
+### Raw Query Columns
+- `REACHED_X_EVENTS`: flag if a user reaches the event threshold
+- `RECENT_LAST_EVENT`: flag if a user's latest event is within the last 21 days
+- `EVENT_CYCLES`: number of periods in between *idle periods*
+    - Idle time is roughly *72 hours* or *3 days*
+    - Idle time computed using the average time between user events
+    - Assuming the events behave as a Poisson random process, we modeled the time between events an exponential random variable. Then:
+        - Approximate its parameter lambda to be the mean of the event gaps
+        - The value corresponding to the 95% quantile of the CDF is used to determine the idle period length
+- `DISTINCT_ARTICLES`: distinct number of articles that a user has interacted with
+- `PERCENT_GOOGLE_ARTICLES`: percent of a user's articles interacted with that originated from a Google search
+- `PERCENT_ARTICLE_CONTENT`: percent of a user's content interacted with that is an article
+- `AVERAGE_CONTENT_SCORE`: average score of the content that a user interacted with
+- `DAYS_TO_X_EVENTS`: days it took to get to X events
+- `EVENTS`: total number of events
+- `FIRST_EVENT_TIME`: timestamp of a user's first event
+- `LATEST_EVENT_TIME`: timestamp of a user's latest event
+- `DISTINCT_DAYS`: number of distinct days that a user is active on the platform
+
+### Final Model Features
+
+Some of the features engineered from the raw query columns:
+
+- `ARTICLES_PER_EVENT`: `DISTINCT_ARTICLES / EVENTS`
+- `PERCENT_GOOGLE_ARTICLES`: used value from query
+- `PERCENT_ARTICLE_CONTENT`: used value from query
+- `EVENT_DENSITY`: `EVENTS / DISTINCT_DAYS`
