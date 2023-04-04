@@ -11,7 +11,7 @@ class FileHelper:
         '''
         pass
     
-    def divide_chunks(self, my_list, chunk_size):
+    def __divide_chunks(self, my_list, chunk_size):
         '''
         Purpose: divides a list into sublists (chunks) of equal lengths
 
@@ -35,7 +35,7 @@ class FileHelper:
         file_name - str desired CSV file name
         batch_size - int size of batches, default 10000
         '''
-        batches = self.divide_chunks(snowpark_results, batch_size)
+        batches = self.__divide_chunks(snowpark_results, batch_size)
         
         for idx, batch in enumerate(batches):
             batch_json = list(map(lambda x: x.as_dict(), batch))
@@ -56,7 +56,7 @@ class FileHelper:
         file_name - str desired CSV file name
         batch_size - int size of batches, default 10000
         '''
-        batches = self.divide_chunks(json_results, batch_size)
+        batches = self.__divide_chunks(json_results, batch_size)
         
         for idx, batch in enumerate(batches):
             batch_df = pd.DataFrame(batch)
