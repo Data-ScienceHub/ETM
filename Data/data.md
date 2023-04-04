@@ -120,12 +120,14 @@ Our project will mainly use the **Event**, **Profile**, and **Content** tables
 - `FIRST_EVENT_TIME`: timestamp of a user's first event
 - `LATEST_EVENT_TIME`: timestamp of a user's latest event
 - `DISTINCT_DAYS`: number of distinct days that a user is active on the platform
+- `ARTICLES_PER_EVENT`: number of distinct articles divided by the number of events
+- `EVENT_DENSITY`: number of events divided by the number of distinct days
 
 ### Final Model Features
 
-Some of the features engineered from the raw query columns:
+Final features used in the model:
 
-- `ARTICLES_PER_EVENT`: `DISTINCT_ARTICLES / EVENTS`
-- `PERCENT_GOOGLE_ARTICLES`: used value from query
-- `PERCENT_ARTICLE_CONTENT`: used value from query
-- `EVENT_DENSITY`: `EVENTS / DISTINCT_DAYS`
+- `ARTICLES_PER_EVENT`
+- `PERCENT_GOOGLE_ARTICLES`
+- `PERCENT_ARTICLE_CONTENT`
+- `EVENT_DENSITY`
