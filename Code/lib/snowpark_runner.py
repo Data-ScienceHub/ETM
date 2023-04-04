@@ -24,7 +24,7 @@ class SnowparkRunner:
         FROM event e
         LEFT JOIN content c ON CONCAT(e.source, '_', e.content_id) = c.id
         LEFT JOIN profile p ON e.set_profile = p.id
-        WHERE DATE_TRUNC('year', e.day) >= DATE('2022-01-01') -- 2022 to Present
+        WHERE DATE_TRUNC('year', e.day) BETWEEN DATE('{2}') AND DATE('{3}')
     )
     , events_with_diff AS (
         SELECT 
@@ -100,10 +100,13 @@ class SnowparkRunner:
         , ea.first_event_time
         , ea.latest_event_time AS event_time_{0}
         , ea.distinct_days AS distinct_days_f{0}
+        , ea.distinct_articles / {0} AS articles_per_event_f{0}
+        , {0} / ea.distinct_days AS event_density_f{0}
     FROM event_aggs_first_{0} ea
     JOIN event_aggs e ON ea.profile_id = e.profile_id
     LEFT JOIN time_to_{0} ttf ON ea.profile_id = ttf.profile_id
-    WHERE e.events >= {0}
+    WHERE e.events BETWEEN {0} AND {1}
+    ORDER BY ea.profile_id
     '''
 
     clustering_query = '''
@@ -122,7 +125,7 @@ class SnowparkRunner:
         FROM event e
         LEFT JOIN content c ON CONCAT(e.source, '_', e.content_id) = c.id
         LEFT JOIN profile p ON e.set_profile = p.id
-        WHERE DATE_TRUNC('year', e.day) >= DATE('2022-01-01') -- 2022 to Present
+        WHERE DATE_TRUNC('year', e.day) BETWEEN DATE('{2}') AND DATE('{3}')
     )
     , events_with_diff AS (
         SELECT 
@@ -190,9 +193,12 @@ class SnowparkRunner:
         , ea.first_event_time
         , ea.latest_event_time
         , ea.distinct_days
+        , ea.distinct_articles / ea.events AS articles_per_event_all
+        , ea.events / ea.distinct_days AS event_density_all
     FROM event_aggs ea
     LEFT JOIN time_to_{0} ttf ON ea.profile_id = ttf.profile_id
-    WHERE ea.events >= {0}
+    WHERE ea.events BETWEEN {0} AND {1}
+    ORDER BY ea.profile_id
     '''
 
     def __init__(self, sp_conn):
@@ -206,35 +212,41 @@ class SnowparkRunner:
     
     # Functions that return Pandas Dataframe
 
-    def query_classification_dataset(self, first_threshold):
+    def query_classification_dataset(self, first_threshold, limit_threshold, end_date, start_date='2022-01-01'):
         '''
         Purpose: Run the Snowflake query to get the classification dataset for the model
 
         INPUTS:
         first_threshold - int the number of minimum events used to limit the query
+        limit_threshold - int the number of maximum events used to limit the query
+        end_date - str ending date of the query formatted in %Y-%m-%d
+        start_date - str starting date of the query formatted in %Y-%m-%d defaults to 2022-01-01
 
         OUTPUTS:
         classification_df - Pandas dataframe with the classification dataset
         '''
 
-        classification_query = self.classification_query.format(first_threshold)
+        classification_query = self.classification_query.format(first_threshold, limit_threshold, start_date, end_date)
 
         classification_df = self.sp_conn.query_snowpark(classification_query)
 
         return classification_df
 
-    def query_clustering_dataset(self, first_threshold):
+    def query_clustering_dataset(self, first_threshold, limit_threshold, end_date, start_date='2022-01-01'):
         '''
         Purpose: Run the Snowflake query to get the clustering dataset for the model
 
         INPUTS:
         first_threshold - int the number of minimum events used to limit the query
+        limit_threshold - int the number of maximum events used to limit the query
+        end_date - str ending date of the query formatted in %Y-%m-%d
+        start_date - str starting date of the query formatted in %Y-%m-%d defaults to 2022-01-01
 
         OUTPUTS:
         clustering_df - Pandas dataframe with the clustering dataset
         '''
 
-        clustering_query = self.clustering_query.format(first_threshold)
+        clustering_query = self.clustering_query.format(first_threshold, limit_threshold, start_date, end_date)
 
         clustering_df = self.sp_conn.query_snowpark(clustering_query)
 
@@ -242,35 +254,41 @@ class SnowparkRunner:
 
     # Functions that return json lists
 
-    def query_classification_dataset_json(self, first_threshold):
+    def query_classification_dataset_json(self, first_threshold, limit_threshold, end_date, start_date='2022-01-01'):
         '''
         Purpose: Run the Snowflake query to get the classification dataset for the model
 
         INPUTS:
         first_threshold - int the number of minimum events used to limit the query
+        limit_threshold - int the number of maximum events used to limit the query
+        end_date - str ending date of the query formatted in %Y-%m-%d
+        start_date - str starting date of the query formatted in %Y-%m-%d defaults to 2022-01-01
 
         OUTPUTS:
         classification_json - list of json with the classification dataset
         '''
 
-        classification_query = self.classification_query.format(first_threshold)
+        classification_query = self.classification_query.format(first_threshold, limit_threshold, start_date, end_date)
 
         classification_json = self.sp_conn.query_snowpark_json(classification_query)
 
         return classification_json
 
-    def query_clustering_dataset_json(self, first_threshold):
+    def query_clustering_dataset_json(self, first_threshold, limit_threshold, end_date, start_date='2022-01-01'):
         '''
         Purpose: Run the Snowflake query to get the clustering dataset for the model
 
         INPUTS:
         first_threshold - int the number of minimum events used to limit the query
+        limit_threshold - int the number of maximum events used to limit the query
+        end_date - str ending date of the query formatted in %Y-%m-%d
+        start_date - str starting date of the query formatted in %Y-%m-%d defaults to 2022-01-01
 
         OUTPUTS:
         clustering_json - list of json with the clustering dataset
         '''
 
-        clustering_query = self.clustering_query.format(first_threshold)
+        clustering_query = self.clustering_query.format(first_threshold, limit_threshold, start_date, end_date)
 
         clustering_json = self.sp_conn.query_snowpark_json(clustering_query)
 
@@ -278,35 +296,41 @@ class SnowparkRunner:
     
     # Functions that return lists of raw Snowpark objects
 
-    def query_classification_dataset_raw(self, first_threshold):
+    def query_classification_dataset_raw(self, first_threshold, limit_threshold, end_date, start_date='2022-01-01'):
         '''
         Purpose: Run the Snowflake query to get the classification dataset for the model
 
         INPUTS:
         first_threshold - int the number of minimum events used to limit the query
+        limit_threshold - int the number of maximum events used to limit the query
+        end_date - str ending date of the query formatted in %Y-%m-%d
+        start_date - str starting date of the query formatted in %Y-%m-%d defaults to 2022-01-01
 
         OUTPUTS:
         classification_results - list of Snowpark objects with the classification dataset
         '''
 
-        classification_query = self.classification_query.format(first_threshold)
+        classification_query = self.classification_query.format(first_threshold, limit_threshold, start_date, end_date)
 
         classification_results = self.sp_conn.query_snowpark_results(classification_query)
 
         return classification_results
 
-    def query_clustering_dataset_raw(self, first_threshold):
+    def query_clustering_dataset_raw(self, first_threshold, limit_threshold, end_date, start_date='2022-01-01'):
         '''
         Purpose: Run the Snowflake query to get the clustering dataset for the model
 
         INPUTS:
         first_threshold - int the number of minimum events used to limit the query
+        limit_threshold - int the number of maximum events used to limit the query
+        end_date - str ending date of the query formatted in %Y-%m-%d
+        start_date - str starting date of the query formatted in %Y-%m-%d defaults to 2022-01-01
 
         OUTPUTS:
         clustering_results - list of Snowpark objects with the clustering dataset
         '''
 
-        clustering_query = self.clustering_query.format(first_threshold)
+        clustering_query = self.clustering_query.format(first_threshold, limit_threshold, start_date, end_date)
 
         clustering_results = self.sp_conn.query_snowpark_results(clustering_query)
 
