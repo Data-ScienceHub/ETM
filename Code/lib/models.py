@@ -106,9 +106,6 @@ class EtmKMeans:
         INPUT:
         colors - list of string for the desired colors of the graph
         alpha - float value between 0 and 1 to determine opacity of plot
-
-        OUTPUT:
-        fig - matplotlib figure with the final plot
         '''
 
         points = self.pca_points
@@ -126,7 +123,7 @@ class EtmKMeans:
             alpha = alpha
         )
 
-        return fig
+        plt.show()
     
     def visualize_2d_pca(self, colors, alpha):
         '''
@@ -135,16 +132,12 @@ class EtmKMeans:
         INPUT:
         colors - list of string for the desired colors of the graph
         alpha - float value between 0 and 1 to determine opacity of plot
-
-        OUTPUT:
-        fig - matplotlib figure with the final plot
         '''
 
         points = self.pca_points
 
         # 2d projection of the plot
-        fig = plt.figure(figsize=(12, 12))
-        fig.scatter(
+        plt.scatter(
             points[:, 0], 
             points[:, 1], 
             c = self.labels, 
@@ -152,7 +145,7 @@ class EtmKMeans:
             alpha = alpha
         )
         
-        return fig
+        plt.show()
 
 class EtmMLP:
     '''
@@ -250,18 +243,12 @@ class EtmMLP:
     def plot_training_curve(self):
         '''
         Purpose: plot the training curve of the training loop
-
-        OUTPUT:
-        fig - matplotlib figure with the plot
         '''
 
         # plot the training performance metrics
-        fig = plt.figure(figsize=(12, 12))
-        fig.plot(self.history.history['accuracy'], label = 'train_accuracy')
-        fig.plot(self.history.history['val_accuracy'], label = 'val_accuracy')
-        fig.legend()
-
-        return fig
+        plt.plot(self.history.history['accuracy'], label = 'train_accuracy')
+        plt.plot(self.history.history['val_accuracy'], label = 'val_accuracy')
+        plt.legend()
     
     def predict_test_set(self):
         '''
@@ -319,7 +306,7 @@ class EtmMLP:
         OUTPUT:
         cm - matrix with the confusion matrix values
         '''
-        
+
         # produce confusion matrix
         y_pred = 1 * (self.val_predicts >= self.cutoff_threshold)
         cm = confusion_matrix(self.y_valid, y_pred)
