@@ -11,7 +11,7 @@ Working in collaboration with our sponsor, Hum, our group has sought to design a
 * Data
   * a collection of .csv files used in the training and testing of some of our early-stage models
 * Resources
-  * 
+  * documents chronicling our progress over the course of the year and supplemental administrative materials related to our team's composition and organization
 * Final
   * the code, data, and documentation for our final model
 
