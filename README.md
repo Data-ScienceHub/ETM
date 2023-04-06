@@ -29,24 +29,24 @@ Working in collaboration with our sponsor, Hum, our group has sought to design a
 
 ## Manifest
 
-* Code
-  * eda
+* Code/
+  * eda/
     * eda.ipynb
     * eda.py
     * eda_features.ipynb
     * env-format.txt
-  * lib
+  * lib/
     * aws_helper.py
     * file_helper.py
     * models.py
     * snowpark_conn.py
     * snowpark_runner.py
-  * notebooks
+  * notebooks/
     * classification.ipynb
     * clustering.ipynb
     * data_extraction.ipynb
     * de_requirements.txt
-  * resources
+  * resources/
     * aws_exeuction_role.png
     * aws_sagemaker_notebook.png
     * aws_tags.png
@@ -61,7 +61,7 @@ Working in collaboration with our sponsor, Hum, our group has sought to design a
   * profile_event.ipynb
   * stacked_hist.ipynb
 
-* Data
+* Data/
   * RNNdata.csv
   * data.md
   * hum_schema.png
@@ -70,14 +70,14 @@ Working in collaboration with our sponsor, Hum, our group has sought to design a
   * reached_16_first_16.csv
   * training_labels.csv
 
-* Final
+* Final/
 
-* Resources
-  * RNN_Models
-    * Links
+* Resources/
+  * RNN_Models/
+    * Links/
       * .gitkeep
       * Linksheet.md
-    * PDFs
+    * PDFs/
       * Predicting Customer Churn with Neural Networks in Keras _ by Kenny Hunt _ Towards Data Science.pdf
   * 02-13Update.pdf
   * 2022-02-19 New Model Proposal v2.pptx
@@ -98,3 +98,6 @@ Working in collaboration with our sponsor, Hum, our group has sought to design a
   * literature.txt
   * methods.png
   * model_2.png
+
+* .gitignore
+* README.md
