@@ -158,11 +158,17 @@ For everyone else, however, the methodology and results of our model can be repr
 
 ### Clustering
 
-
+In order to determine the training labels for our data, we applied k-means clustering to the engineered features described above and derived from the users' entire event sequences. The entire process is laid out in the notebook `/Final/Clustering/Clustering.ipynb`, and the data required to execute this clustering can be downloaded and accessed from `/Final/Clustering/reached_16_all.csv`.
 
 ### Classification
 
+Once the training labels were generated, we constructed an MLP model to perform user classification based on the engineered features described above but derived only from the users' first 16 events. The model building, training, and evaluation process is demonstrated in the notebook `/Final/Classification/Classification.ipynb`, and the data necessary to support training can be downloaded and reached from `/Final/Classification/training_labels.csv` and `/Final/Classification/reached_16_first_16.csv`.
+
 ## Results
+
+The final results and performance metrics from our model are summarized in the plots below.
+
+**Still need to add plots**
 
 ## Manifest
 
@@ -208,6 +214,13 @@ For everyone else, however, the methodology and results of our model can be repr
   * training_labels.csv
 
 * Final/
+  * Classification/
+    * Classification.ipynb
+    * reached_16_first_16.csv
+    * training_labels.csv
+  * Clustering/
+    * Clustering.ipynb
+    * reached_16_all.csv
 
 * Resources/
   * RNN_Models/
