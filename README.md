@@ -12,17 +12,17 @@ To ensure our analysis was interpretable and marketable for our sponsor, we purp
 ## Primary Repository Contents
 
 * Code
-  * notebooks produced during the course of this project that document various iterations and previous versions of our model and codebase
+  * Notebooks produced during the course of this project that document various iterations and previous versions of our model and codebase
   * (Note: Hum developers should also refer to the `/lib/` and `/notebooks/` folders located inside for our fully integrated final models)
 
 * Data
-  * a collection of .csv files used in the training and testing of some of our early-stage models
+  * A collection of .csv files used in the training and testing of some of our early-stage models
 
 * Final
-  * the code, data, and documentation for our final model
+  * The code, data, and documentation for our final model
 
 * Resources
-  * documents chronicling our progress over the course of the year and supplemental administrative materials related to our team's composition and organization
+  * Documents chronicling our progress over the course of the year and supplemental administrative materials related to our team's composition and organization
 
 ## Data
 
