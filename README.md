@@ -30,17 +30,17 @@ Working in collaboration with our sponsor, Hum, our group has sought to design a
 ## Manifest
 
 * Code
- * eda
-  * eda.ipynb
-  * eda.py
-  * eda_features.ipynb
-  * env-format.txt
- * lib
-  * aws_helper.py
-  * file_helper.py
-  * models.py
-  * snowpark_conn.py
-  * snowpark_runner.py
+  * eda
+    * eda.ipynb
+    * eda.py
+    * eda_features.ipynb
+    * env-format.txt
+  * lib
+    * aws_helper.py
+    * file_helper.py
+    * models.py
+    * snowpark_conn.py
+    * snowpark_runner.py
  * notebooks
   * classification.ipynb
   * clustering.ipynb
