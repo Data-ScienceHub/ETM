@@ -29,7 +29,6 @@ Below is the schema provided by Hum:
 
 Our project will mainly use the **Event**, **Profile**, and **Content** tables
 
-
 ### Data Description
 
 #### Event:
@@ -152,6 +151,8 @@ Final features used in the model:
 - `EVENT_DENSITY`
 
 ## Models
+
+Hum employees or individuals with access to Hum's data warehouse on Snowflake should refer to 
 
 ## Clustering
 
