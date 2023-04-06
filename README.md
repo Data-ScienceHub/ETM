@@ -25,7 +25,7 @@ Data will be accesed through **Snowflake** and **Snowpark**
 
 Below is the schema provided by Hum:
 
-![Hum Schema](hum_schema.png)
+![Hum Schema](Data/hum_schema.png)
 
 Our project will mainly use the **Event**, **Profile**, and **Content** tables
 
