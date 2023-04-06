@@ -152,11 +152,15 @@ Final features used in the model:
 
 ## Models
 
-Hum employees or individuals with access to Hum's data warehouse on Snowflake should refer to 
+Hum employees or individuals with access to Hum's Snowflake and AWS systems should refer to the code located in `/Code/lib/models.py` and `/Code/notebooks/` for our fully integrated and packaged Python models and Jupyter notebooks, respectively.
 
-## Clustering
+For everyone else, however, the methodology and results of our model can be reproduced locally using the files located in `/Final/`, and the following sections will outline how to sequentially perform the appropriate clustering and classification using static datasets which were previously extracted from Snowflake.
 
-## Classification
+### Clustering
+
+
+
+### Classification
 
 ## Results
 
