@@ -30,7 +30,7 @@ Working in collaboration with our sponsor, Hum, our group has sought to design a
 ## Manifest
 
 * Code
- * eda
+  * eda
     * eda.ipynb
     * eda.py
     * eda_features.ipynb
