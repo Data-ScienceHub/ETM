@@ -1,5 +1,5 @@
 # Hum Engagement Time Machine
-## Griffin McCauley, Eric Tria, Theo Thormann, & Jake Weinberg
+## Griffin McCauley, Eric Tria, Theo Thormann, Jake Weinberg
 ### UVA MSDS Capstone Project 2023
 
 ### Project Overview
