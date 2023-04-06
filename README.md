@@ -4,7 +4,10 @@
 
 ### Project Overview
 
-Working in collaboration with our sponsor, Hum, our group has sought to design and develop a multilayer perceptron (MLP) model which will help academic publishers more quickly and accurately identify users who display behaviors associated with high quality engagement and will hopefully provide a foundation for future projects aimed at subjects such as peer reviewer recruitment and relevant content recommendation. Using first-party customer data collected by Hum's customer data platform (CDP), we were able to extract streams of online actions and events performed by each user over their entire lifecycle, and, through careful and deliberate feature engineering, we managed to successfully derive a set of attributes upon which we could generate behavioral clusters indicative of high versus low quality user engagement. The four features we used to base our clustering and subsequent classifcation upon were the Number of Unique Articles per Event, the Percentage of Articles Reached Through Google, the Percentage of Content Consumed that was an Article, and the Number of Events Performed per Day Active. The two classes determined through applying k-means clustering on these features were then used assign training labels to each user in our dataset. ....
+Using first-party data collected from the customer data platform (CDP) Hum, we developed a model that can accurately classify the online readers of an academic publisher as being high- or low-quality based on their early-stage engagement profiles. Hum’s relational database contains over a dozen tables and almost 100 features in total. Using these tables, we engineered four new variables to serve as the basis of our analysis that illuminate differences between high-value and low-value user behavior. Through a combination of k-means clustering for determining training labels and a multilayer perceptron (MLP) for predicting which of our client’s users belong to each cluster, we were able to identify what characteristics are indicative of high- versus low-quality engagement. We also demonstrated our model’s ability to distinguish between these two profile types off of only a small volume of user data.
+
+To ensure our analysis was interpretable and marketable for our sponsor, we purposefully limited our classification to two clusters. This enabled us to see striking patterns across the four features in question that strongly resembled the tendencies of a good user: a low number of articles read per event (signifies deeper engagement levels), a lower percentage of content that was reached through Google (as opposed to a more scholarly source such as PubMed or the publisher themselves), a lower percentage of content read that was an article (indicates engagement with figures and tables), and a high number of events performed per day engaging with the platform. Our MLP model leverages these four features derived from the users’ first 16 events (which is roughly equivalent to four total article reads due to the nature of how events are being tracked in the platform), and, based solely upon these features from the first 16 events, our MLP model is able to predict whether a user is high- or low-quality with 94% accuracy. While the innovative data cleaning and impressive model performance produced through this project are valuable on their own, these developments are additionally exciting as the engineered features and this model framework will now be able to serve as foundational components in the burgeoning field of digital academic publisher engagement.
+
 
 ## Primary Repository Contents
 
@@ -173,6 +176,10 @@ Once the training labels were generated, we constructed an MLP model to perform 
 The final results and performance metrics from our model are summarized in the plots below.
 
 **Still need to add plots**
+
+## Acknowledgment
+
+We would like to acknowledge the contributions of the Hum staff, specifically Dr. Will Fortin, Niall Little, and Dylan DiGioia, to this project. We would also like to thank our capstone advisor, Dr. Judy Fox, for her assistance with this project.
 
 ## Full Repository Manifest
 
