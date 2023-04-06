@@ -6,16 +6,20 @@
 
 Working in collaboration with our sponsor, Hum, our group has sought to design and develop a multilayer perceptron (MLP) model which will help academic publishers more quickly and accurately identify users who display behaviors associated with high quality engagement and will hopefully provide a foundation for future projects aimed at subjects such as peer reviewer recruitment and relevant content recommendation. Using first-party customer data collected by Hum's customer data platform (CDP), we were able to extract streams of online actions and events performed by each user over their entire lifecycle, and, through careful and deliberate feature engineering, we managed to successfully derive a set of attributes upon which we could generate behavioral clusters indicative of high versus low quality user engagement. The four features we used to base our clustering and subsequent classifcation upon were the Number of Unique Articles per Event, the Percentage of Articles Reached Through Google, the Percentage of Content Consumed that was an Article, and the Number of Events Performed per Day Active. The two classes determined through applying k-means clustering on these features were then used assign training labels to each user in our dataset. ....
 
-## Table of Contents
+## Primary Repository Contents
 
 * Code
-  * notebooks produced during the course of this project and documents various iterations and previous versions of our model and codebase
+  * notebooks produced during the course of this project that document various iterations and previous versions of our model and codebase
+  * (Note: Hum developers should also refer to the `/lib/` and `/notebooks/` folders located inside for our fully integrated final models)
+
 * Data
   * a collection of .csv files used in the training and testing of some of our early-stage models
-* Resources
-  * documents chronicling our progress over the course of the year and supplemental administrative materials related to our team's composition and organization
+
 * Final
   * the code, data, and documentation for our final model
+
+* Resources
+  * documents chronicling our progress over the course of the year and supplemental administrative materials related to our team's composition and organization
 
 ## Data
 
@@ -170,7 +174,7 @@ The final results and performance metrics from our model are summarized in the p
 
 **Still need to add plots**
 
-## Manifest
+## Full Repository Manifest
 
 * Code/
   * eda/
