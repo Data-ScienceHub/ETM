@@ -9,13 +9,13 @@ Working in collaboration with our sponsor, Hum, our group has sought to design a
 ## Table of Contents
 
 * Code
- * notebooks produced during the course of this project and documents various iterations and previous versions of our model and codebase
+  * notebooks produced during the course of this project and documents various iterations and previous versions of our model and codebase
 * Data
- * a collection of .csv files used in the training and testing of some of our early-stage models
+  * a collection of .csv files used in the training and testing of some of our early-stage models
 * Resources
- * documents chronicling our progress over the course of the year and supplemental administrative materials related to our team's composition and organization
+  * documents chronicling our progress over the course of the year and supplemental administrative materials related to our team's composition and organization
 * Final
- * the code, data, and documentation for our final model
+  * the code, data, and documentation for our final model
 
 ## Data
 
