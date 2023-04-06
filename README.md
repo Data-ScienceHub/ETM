@@ -98,3 +98,10 @@ Working in collaboration with our sponsor, Hum, our group has sought to design a
  * literature.txt
  * methods.png
  * model_2.png
+
+* montecarlo/
+  * \_\_init__.py
+  * montecarlo.py
+  * tests/
+    * montecarlo_results.txt
+    * montecarlo_tests.py
