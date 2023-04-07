@@ -173,7 +173,7 @@ Once the training labels were generated, we constructed an MLP model to perform 
 
 ## Results
 
-The final results and performance metrics from our model are summarized in the plots below.
+The final results and performance metrics from our model are summarized by the graphics below.
 
 Our MLP model was able to quickly converge to a stable parameterization and achieve an accuracy of 94% after less than 10 epochs:
 ![MLP Training](/Resources/training.png)
