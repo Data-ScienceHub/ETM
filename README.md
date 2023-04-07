@@ -175,7 +175,15 @@ Once the training labels were generated, we constructed an MLP model to perform 
 
 The final results and performance metrics from our model are summarized in the plots below.
 
-**Still need to add plots**
+Our MLP model was able to quickly converge to a stable parameterization and achieve an accuracy of 94% after less than 10 epochs:
+![MLP Training](/Resources/training.png)
+
+The soft prediction scores for hold-out validation set corresponded to the following ROC curve with an AUC of 0.96:
+![MLP Training](/Resources/roc.png)
+
+When choosing a threshold that tried to balance True Postives and True Negatives equally, our predictions produced the following confusion matrix and associated True/False Positive/Negative rates:
+![MLP Training](/Resources/confusion_matrix.png)
+![MLP Training](/Resources/rates.png)
 
 ## Acknowledgment
 
@@ -255,10 +263,14 @@ We would like to acknowledge the contributions of the Hum staff, specifically Dr
   * Talent Dashboard.pdf
   * Team Charter.pdf
   * Weekly Progress.md
+  * confusion_matrix.png
   * eda.png
   * literature.txt
   * methods.png
   * model_2.png
+  * rates.png
+  * roc.png
+  * training.png
 
 * .gitignore
 * README.md
