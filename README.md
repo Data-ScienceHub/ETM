@@ -42,7 +42,7 @@ Our project will mainly use the **Event**, **Profile**, and **Content** tables
 
 | Column       | Type           | Description                                                                   |
 |--------------|----------------|-------------------------------------------------------------------------------|
-| CLIENT       | VARCHAR        | ID for the client. For this project: "rup" for "Rockefeller University Press" |
+| CLIENT       | VARCHAR        | ID for the client                                                             |
 | ID           | VARCHAR        | Unique ID for the event in each row                                           |
 | TAGS         | VARIANT (JSON) | Tags or topics of the content                                                 |
 | META         | VARIANT (JSON) | Meta data for each event                                                      |
@@ -71,7 +71,7 @@ Our project will mainly use the **Event**, **Profile**, and **Content** tables
 
 | Column              | Type           | Description                                                                   |
 |---------------------|----------------|-------------------------------------------------------------------------------|
-| CLIENT              | VARCHAR        | ID for the client. For this project: "rup" for "Rockefeller University Press" |
+| CLIENT              | VARCHAR        | ID for the client                                                             |
 | ID                  | VARCHAR        | Unique ID for the row. Connects with Event set_profile                        |
 | USER_ID             | VARCHAR        | Unique ID for each user                                                       |
 | EMAILS              | VARCHAR        | Email addresses associated with a user                                        |
@@ -95,7 +95,7 @@ Our project will mainly use the **Event**, **Profile**, and **Content** tables
 
 | Column          | Type      | Description                                                                   |
 |-----------------|-----------|-------------------------------------------------------------------------------|
-| CLIENT          | VARCHAR   | ID for the client. For this project: "rup" for "Rockefeller University Press" |
+| CLIENT          | VARCHAR   | ID for the client                                                             |
 | ID              | VARCHAR   | Unique ID for the row. Connects with Event set_profile                        |
 | CONTENT_ID      | VARCHAR   | Unique ID for each content                                                    |
 | KEYWORDS        | ARRAY     | Keywords associated with a content                                            |
