@@ -242,12 +242,6 @@ We would like to acknowledge the contributions of the Hum staff, specifically Dr
     * reached_16_all.csv
 
 * Resources/
-  * RNN_Models/
-    * Links/
-      * .gitkeep
-      * Linksheet.md
-    * PDFs/
-      * Predicting Customer Churn with Neural Networks in Keras _ by Kenny Hunt _ Towards Data Science.pdf
   * 02-13Update.pdf
   * 2022-02-19 New Model Proposal v2.pptx
   * 2023-01-29 DS6013 Project Proposal.pdf
