@@ -11,11 +11,11 @@ To ensure our analysis was interpretable and marketable for our sponsor, we purp
 
 ## Primary Repository Contents
 
-* Code
+* Code_Archive
   * Notebooks produced during the course of this project that document various iterations and previous versions of our model and codebase
   * (Note: Hum developers should also refer to the `/lib/` and `/notebooks/` folders located inside for our fully integrated final models)
 
-* Data
+* Data_Archive
   * A collection of .csv files used in the training and testing of some of our early-stage models
 
 * Final
@@ -32,7 +32,7 @@ Data will be accesed through **Snowflake** and **Snowpark**
 
 Below is the schema provided by Hum:
 
-![Hum Schema](/Data/hum_schema.png)
+![Hum Schema](/Data_Archive/hum_schema.png)
 
 Our project will mainly use the **Event**, **Profile**, and **Content** tables
 
@@ -159,7 +159,7 @@ Final features used in the model:
 
 ## Models
 
-Hum employees or individuals with access to Hum's Snowflake and AWS systems should refer to the code located in `/Code/lib/models.py` and `/Code/notebooks/` for our fully integrated and packaged Python models and Jupyter notebooks, respectively.
+Hum employees or individuals with access to Hum's Snowflake and AWS systems should refer to the code located in `/Code_Archive/lib/models.py` and `/Code_Archive/notebooks/` for our fully integrated and packaged Python models and Jupyter notebooks, respectively.
 
 For everyone else, however, the methodology and results of our model can be reproduced locally using the files located in `/Final/`, and the following sections will outline how to sequentially perform the appropriate clustering and classification using static datasets which were previously extracted from Snowflake.
 
@@ -191,7 +191,7 @@ We would like to acknowledge the contributions of the Hum staff, specifically Dr
 
 ## Full Repository Manifest
 
-* Code/
+* Code_Archive/
   * eda/
     * eda.ipynb
     * eda.py
@@ -223,7 +223,7 @@ We would like to acknowledge the contributions of the Hum staff, specifically Dr
   * profile_event.ipynb
   * stacked_hist.ipynb
 
-* Data/
+* Data_Archive/
   * RNNdata.csv
   * data.md
   * hum_schema.png
