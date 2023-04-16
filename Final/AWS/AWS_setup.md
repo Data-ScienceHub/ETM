@@ -22,9 +22,10 @@
 
 ## 2. Running the notebook
 
-- Copy the files from the `/Code/lib` and `/Code/notebooks` to the AWS notebook.
+- Copy the files from the `/Final/AWS/lib` and `/Final/AWS/notebooks` to the AWS notebook.
 - Make sure to uncomment the lines of code that are indicated for AWS SageMaker use.
 - For `data_extraction.ipynb`, use the `conda_mxnet_p38` kernel since Snowpark currently only works with Python 3.8
+- For `clustering.ipynb` and `classification.ipynb` use the `conda_tensorflow2_p310` kernel.
 
 ## 3. Closing the notebook
 

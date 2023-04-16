@@ -94,7 +94,7 @@ Our project will mainly use the **Event**, **Profile**, and **Content** tables
 
 ## Query Columns
 
-- Final queries used can be found at `/Code/lib/snowpark_runner.py`
+- Final queries used can be found at `/Final/AWS/lib/snowpark_runner.py`
 
 - Difference between classification & clustering queries:
     - Classification: comptues features using the first **X** events of a user
