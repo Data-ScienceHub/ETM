@@ -1,10 +1,551 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>My GitHub Pages Site</title>
-  </head>
-  <body>
-    <h1>Hello world!</h1>
-    <p>Welcome to my GitHub Pages site!</p>
-  </body>
+    <head>
+        <title>Engagement Time Machine</title>
+        <h1 id="hum-engagement-time-machine">Hum Engagement Time Machine</h1>
+        <h2 id="griffin-mccauley-eric-tria-theo-thormann-jake-weinberg">Griffin McCauley, Eric Tria, Theo Thormann, Jake Weinberg</h2>
+        <h3 id="uva-msds-capstone-project-2023">UVA MSDS Capstone Project 2023</h3>
+        
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="js/menu.js"></script>
+        <style>
+            .menu-index {
+            color: rgb(255, 255, 255) !important;
+            opacity: 1 !important;
+            font-weight: 700 !important;
+            }
+        </style>
+    </head>
+    <br><br>
+
+    <body>
+        <h3 id="project-overview">Project Overview</h3>
+        <p>Using first-party data collected from the customer data platform (CDP) Hum, we developed a model that can accurately classify the online readers of an academic publisher as being high- or low-quality based on their early-stage engagement profiles. Hum’s relational database contains over a dozen tables and almost 100 features in total. Using these tables, we engineered four new variables to serve as the basis of our analysis that illuminate differences between high-value and low-value user behavior. Through a combination of k-means clustering for determining training labels and a multilayer perceptron (MLP) for predicting which of our client’s users belong to each cluster, we were able to identify what characteristics are indicative of high- versus low-quality engagement. We also demonstrated our model’s ability to distinguish between these two profile types off of only a small volume of user data.</p>
+        <br>
+        <p>To ensure our analysis was interpretable and marketable for our sponsor, we purposefully limited our classification to two clusters. This enabled us to see striking patterns across the four features in question that strongly resembled the tendencies of a good user: a low number of articles read per event (signifies deeper engagement levels), a lower percentage of content that was reached through Google (as opposed to a more scholarly source such as PubMed or the publisher themselves), a lower percentage of content read that was an article (indicates engagement with figures and tables), and a high number of events performed per day engaging with the platform. Our MLP model leverages these four features derived from the users’ first 16 events (which is roughly equivalent to four total article reads due to the nature of how events are being tracked in the platform), and, based solely upon these features from the first 16 events, our MLP model is able to predict whether a user is high- or low-quality with 94% accuracy. While the innovative data cleaning and impressive model performance produced through this project are valuable on their own, these developments are additionally exciting as the engineered features and this model framework will now be able to serve as foundational components in the burgeoning field of digital academic publisher engagement.</p>
+    </body>
+    <br><br>
+
+    <body>
+        <h2 id="primary-repository-contents">Primary Repository Contents</h2>
+        <ul>
+            <li><p>Code_Archive</p>
+                <ul>
+                    <li>Notebooks produced during the course of this project that document various iterations and previous versions of our model and codebase</li>
+                    <li>(Note: Hum developers should also refer to the <code>/lib/</code> and <code>/notebooks/</code> folders located inside for our fully integrated final models)</li>
+                </ul>
+            </li>
+            <li><p>Data_Archive</p>
+                <ul>
+                    <li>A collection of .csv files used in the training and testing of some of our early-stage models</li>
+                </ul>
+            </li>
+            <li><p>Final</p>
+                <ul>
+                    <li>The code, data, and documentation for our final model</li>
+                </ul>
+            </li>
+            <li><p>Resources</p>
+                <ul>
+                    <li>Documents chronicling our progress over the course of the year and supplemental administrative materials related to our team&#39;s composition and organization</li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+    <br><br>
+
+    <body>
+        <h2 id="data">Data</h2>
+        <p>Data will be accesed through <strong>Snowflake</strong> and <strong>Snowpark</strong></p>
+        <p>Our project will mainly use the <strong>Event</strong>, <strong>Profile</strong>, and <strong>Content</strong> tables</p>
+        <h3 id="data-description">Data Description</h3>
+
+        <h4 id="event-">Event:</h4>
+        <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;}
+            .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg .tg-cly1{text-align:left;vertical-align:middle}
+            .tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle}
+            .tg .tg-g7sd{border-color:inherit;font-weight:bold;text-align:left;vertical-align:middle}
+            .tg .tg-yla0{font-weight:bold;text-align:left;vertical-align:middle}
+            </style>
+            <table class="tg">
+            <thead>
+              <tr>
+                <th class="tg-g7sd">Column</th>
+                <th class="tg-yla0">Type</th>
+                <th class="tg-yla0">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-lboi">CLIENT</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">ID for the client</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">ID</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">Unique ID for the event in each row</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">TAGS</td>
+                <td class="tg-cly1">VARIANT (JSON)</td>
+                <td class="tg-cly1">Tags or topics of the content</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">META</td>
+                <td class="tg-cly1">VARIANT (JSON)</td>
+                <td class="tg-cly1">Meta data for each event</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">DAY</td>
+                <td class="tg-cly1">DATE</td>
+                <td class="tg-cly1">Date when the event occurred</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">KEYWORDS</td>
+                <td class="tg-cly1">VARIANT (JSON)</td>
+                <td class="tg-cly1">Keywords used in the content</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">REFERER</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">The source or link where the event came from</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">UTM_CAMPAIGN</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">To be discussed with Hum</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">UTM_CONTENT</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">To be discussed with Hum</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">UTM_MEDIUM</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">To be discussed with Hum</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">UTM_SOURCE</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">To be discussed with Hum</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">UTM_TERM</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">To be discussed with Hum</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">SET_PROFILE</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">ID connecting with Profile table</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">SET_USER</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">User email</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">IP</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">IP address of a user</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">USER_AGENT</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">User agent of a user</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">SOURCE</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">Source of the content.</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">URL</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">URL of the content</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">VISITOR_ID</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">Unique ID per visitor. To be confirmed with Hum if this is per session</td>
+              </tr>
+              <tr>
+                <td class="tg-cly1">DATE</td>
+                <td class="tg-cly1">TIMESTAMP</td>
+                <td class="tg-cly1">Timestamp of the event</td>
+              </tr>
+              <tr>
+                <td class="tg-cly1">EVENT</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">Event type</td>
+              </tr>
+              <tr>
+                <td class="tg-cly1">CONTENT_ID</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">ID of the content</td>
+              </tr>
+              <tr>
+                <td class="tg-cly1">CREATED</td>
+                <td class="tg-cly1">TIMESTAMP</td>
+                <td class="tg-cly1">Timestamp of when the event was created</td>
+              </tr>
+              <tr>
+                <td class="tg-cly1">UPDATED</td>
+                <td class="tg-cly1">TIMESTAMP</td>
+                <td class="tg-cly1">Timestamp of when the event was last updated</td>
+              </tr>
+            </tbody>
+            </table>
+        <br>
+
+        <h4 id="event-">Profile:</h4>
+        <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;}
+            .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg .tg-cly1{text-align:left;vertical-align:middle}
+            .tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle}
+            .tg .tg-g7sd{border-color:inherit;font-weight:bold;text-align:left;vertical-align:middle}
+            .tg .tg-yla0{font-weight:bold;text-align:left;vertical-align:middle}
+            </style>
+            <table class="tg">
+            <thead>
+              <tr>
+                <th class="tg-g7sd">Column</th>
+                <th class="tg-yla0">Type</th>
+                <th class="tg-yla0">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-lboi">CLIENT</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">ID for the client</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">ID</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">Unique ID for the row. Connects with Event set_profile</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">USER_ID</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">Unique ID for each user</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">EMAILS</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">Email addresses associated with a user</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">CAMPAIGNS</td>
+                <td class="tg-cly1">VARIANT (JSON)</td>
+                <td class="tg-cly1">Campaigns a user participated in</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">CREATED</td>
+                <td class="tg-cly1">TIMESTAMP</td>
+                <td class="tg-cly1">Timestamp of when a user was created</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">UPDATED</td>
+                <td class="tg-cly1">TIMESTAMP</td>
+                <td class="tg-cly1">Timestamp of when a user was last updated</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">DOMAINS</td>
+                <td class="tg-cly1">VARIANT (JSON)</td>
+                <td class="tg-cly1">Domains that a user has visited</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">FIRST_VISIT</td>
+                <td class="tg-cly1">TIMESTAMP</td>
+                <td class="tg-cly1">Timestamp of when a user first visited the platform</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">IDENTIFIED_ON</td>
+                <td class="tg-cly1">TIMESTAMP</td>
+                <td class="tg-cly1">To be discussed with Hum</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">IDENTIFYING_REFERER</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">To be discussed with Hum</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">IDENTIFYING_UTM</td>
+                <td class="tg-cly1">VARCHAR</td>
+                <td class="tg-cly1">To be discussed with Hum</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">LAST_ACTIVE</td>
+                <td class="tg-cly1">TIMESTAMP</td>
+                <td class="tg-cly1">Timestamp of when a user was last active on the platform</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">ORGANIZATION_IDS</td>
+                <td class="tg-cly1">ARRAY</td>
+                <td class="tg-cly1">Organizations that a user is part of</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">SEGMENTS</td>
+                <td class="tg-cly1">ARRAY</td>
+                <td class="tg-cly1">To be discussed with Hum</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">PROPERTIES</td>
+                <td class="tg-cly1">VARIANT (JSON)</td>
+                <td class="tg-cly1">To be discussed with Hum</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">METRICS</td>
+                <td class="tg-cly1">VARIANT (JSON)</td>
+                <td class="tg-cly1">To be discussed with Hum</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">PERCENTILES</td>
+                <td class="tg-cly1">VARIANT (JSON)</td>
+                <td class="tg-cly1">To be discussed with Hum</td>
+              </tr>
+              <tr>
+                <td class="tg-lboi">USER_SIDS</td>
+                <td class="tg-cly1">ARRAY</td>
+                <td class="tg-cly1">To be discussed with Hum</td>
+              </tr>
+            </tbody>
+            </table>
+        <br>
+
+        <h4 id="event-">Content:</h4>
+        <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;}
+            .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+            <thead>
+              <tr>
+                <th class="tg-0pky">Column</th>
+                <th class="tg-0pky">Type</th>
+                <th class="tg-0pky">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-0pky">CLIENT</td>
+                <td class="tg-0pky">VARCHAR</td>
+                <td class="tg-0pky">ID for the client</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">ID</td>
+                <td class="tg-0pky">VARCHAR</td>
+                <td class="tg-0pky">Unique ID for the row. Connects with Event set_profile</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">CONTENT_ID</td>
+                <td class="tg-0pky">VARCHAR</td>
+                <td class="tg-0pky">Unique ID for each content</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">KEYWORDS</td>
+                <td class="tg-0pky">ARRAY</td>
+                <td class="tg-0pky">Keywords associated with a content</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">DOWNLOAD_SLIDE</td>
+                <td class="tg-0pky">DOUBLE</td>
+                <td class="tg-0pky">Number of times the content had a download slide event</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">PDF_CLICK</td>
+                <td class="tg-0pky">DOUBLE</td>
+                <td class="tg-0pky">Number of times the content had a PDF click event</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">PAGEVIEW</td>
+                <td class="tg-0pky">DOUBLE</td>
+                <td class="tg-0pky">Number of times the content had a page view event</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">POST_READ</td>
+                <td class="tg-0pky">DOUBLE</td>
+                <td class="tg-0pky">Number of times the content had a post read event</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">POST_READ_MID</td>
+                <td class="tg-0pky">DOUBLE</td>
+                <td class="tg-0pky">Number of times the content had a post read mid event</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">POST_READ_START</td>
+                <td class="tg-0pky">DOUBLE</td>
+                <td class="tg-0pky">Number of times the content had a post read start event</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">POST_READ_END</td>
+                <td class="tg-0pky">DOUBLE</td>
+                <td class="tg-0pky">Number of times the content had a post read end event</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">SCROLL</td>
+                <td class="tg-0pky">DOUBLE</td>
+                <td class="tg-0pky">Number of times the content had a scroll event</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">EXCERPT</td>
+                <td class="tg-0pky">VARCHAR</td>
+                <td class="tg-0pky">Text excerpt from the content</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">CONTENT</td>
+                <td class="tg-0pky">VARCHAR</td>
+                <td class="tg-0pky">Description of the content</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">SCORE</td>
+                <td class="tg-0pky">DOUBLE</td>
+                <td class="tg-0pky">Sum of all the event columns</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">SOURCE</td>
+                <td class="tg-0pky">VARCHAR</td>
+                <td class="tg-0pky">Source of the content</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">TITLE</td>
+                <td class="tg-0pky">VARCHAR</td>
+                <td class="tg-0pky">Title of the content</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">TYPE</td>
+                <td class="tg-0pky">VARCHAR</td>
+                <td class="tg-0pky">Type of the content</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">URL</td>
+                <td class="tg-0pky">VARCHAR</td>
+                <td class="tg-0pky">URL of the content</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">CREATED</td>
+                <td class="tg-0pky">TIMESTAMP</td>
+                <td class="tg-0pky">Timestamp of when a content was created</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">UPDATED</td>
+                <td class="tg-0pky">TIMESTAMP</td>
+                <td class="tg-0pky">Timestamp of when a content was updated</td>
+              </tr>
+            </tbody>
+            </table>
+    </body>
+    <br><br>
+
+    <body>
+        <h3 id="query-columns">Query Columns</h3>
+        <ul>
+            <li><p>Final queries used can be found at <code>/Code/lib/snowpark_runner.py</code></p>
+            </li>
+            <li><p>Difference between classification &amp; clustering queries:</p>
+                <ul>
+                    <li>Classification: comptues features using the first <strong>X</strong> events of a user</li>
+                    <li>Clustering: computes features using <strong>all</strong> events of a user</li>
+                </ul>
+            </li>
+            <li><p>Queries from the start of 2022 to the current date</p>
+            </li>
+        </ul>
+
+        <h4 id="raw-query-columns">Raw Query Columns</h4>
+        <ul>
+            <li><code>REACHED_X_EVENTS</code>: flag if a user reaches the event threshold</li>
+            <li><code>RECENT_LAST_EVENT</code>: flag if a user&#39;s latest event is within the last 21 days</li>
+            <li><code>EVENT_CYCLES</code>: number of periods in between <em>idle periods</em><ul>
+            <li>Idle time is roughly <em>72 hours</em> or <em>3 days</em></li>
+            <li>Idle time computed using the average time between user events</li>
+            <li>Assuming the events behave as a Poisson random process, we modeled the time between events an exponential random variable. Then:<ul>
+            <li>Approximate its parameter lambda to be the mean of the event gaps</li>
+            <li>The value corresponding to the 95% quantile of the CDF is used to determine the idle period length</li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            <li><code>DISTINCT_ARTICLES</code>: distinct number of articles that a user has interacted with</li>
+            <li><code>PERCENT_GOOGLE_ARTICLES</code>: percent of a user&#39;s articles interacted with that originated from a Google search</li>
+            <li><code>PERCENT_ARTICLE_CONTENT</code>: percent of a user&#39;s content interacted with that is an article</li>
+            <li><code>AVERAGE_CONTENT_SCORE</code>: average score of the content that a user interacted with</li>
+            <li><code>DAYS_TO_X_EVENTS</code>: days it took to get to X events</li>
+            <li><code>EVENTS</code>: total number of events</li>
+            <li><code>FIRST_EVENT_TIME</code>: timestamp of a user&#39;s first event</li>
+            <li><code>LATEST_EVENT_TIME</code>: timestamp of a user&#39;s latest event</li>
+            <li><code>DISTINCT_DAYS</code>: number of distinct days that a user is active on the platform</li>
+            <li><code>ARTICLES_PER_EVENT</code>: number of distinct articles divided by the number of events</li>
+            <li><code>EVENT_DENSITY</code>: number of events divided by the number of distinct days</li>
+        </ul>
+
+        <h4 id="final-model-features">Final Model Features</h4>
+        <p>Final features used in the model:</p>
+        <ul>
+        <li><code>ARTICLES_PER_EVENT</code></li>
+        <li><code>PERCENT_GOOGLE_ARTICLES</code></li>
+        <li><code>PERCENT_ARTICLE_CONTENT</code></li>
+        <li><code>EVENT_DENSITY</code></li>
+        </ul>
+
+    </body>
+    <br><br>
+
+    <body>
+        <h2 id="models">Models</h2>
+        <p>Hum employees or individuals with access to Hum&#39;s Snowflake and AWS systems should refer to the code located in <code>/Code_Archive/lib/models.py</code> and <code>/Code_Archive/notebooks/</code> for our fully integrated and packaged Python models and Jupyter notebooks, respectively.</p>
+        <p>For everyone else, however, the methodology and results of our model can be reproduced locally using the files located in <code>/Final/</code>, and the following sections will outline how to sequentially perform the appropriate clustering and classification using static datasets which were previously extracted from Snowflake.</p>
+
+        <br>
+
+        <h3 id="clustering">Clustering</h3>
+        <p>In order to determine the training labels for our data, we applied k-means clustering to the engineered features described above and derived from the users&#39; entire event sequences. The entire process is laid out in the notebook <code>/Final/Clustering/Clustering.ipynb</code>, and the data required to execute this clustering can be downloaded and accessed from <code>/Final/Clustering/reached_16_all.csv</code>.</p>
+
+        <br>
+
+        <h3 id="classification">Classification</h3>
+        <p>Once the training labels were generated, we constructed an MLP model to perform user classification based on the engineered features described above but derived only from the users&#39; first 16 events. The model building, training, and evaluation process is demonstrated in the notebook <code>/Final/Classification/Classification.ipynb</code>, and the data necessary to support training can be downloaded and reached from <code>/Final/Classification/training_labels.csv</code> and <code>/Final/Classification/reached_16_first_16.csv</code>.</p>
+
+        <br>
+
+        <h2 id="results">Results</h2>
+        <p>The final results and performance metrics from our model are summarized by the graphics below.</p>
+        <p>Our MLP model was able to quickly converge to a stable parameterization and achieve an accuracy of 94% after less than 10 epochs:
+        <img src="/Resources/training.png" alt="MLP Training"></p>
+        <p>The soft prediction scores for hold-out validation set corresponded to the following ROC curve with an AUC of 0.96:
+        <img src="/Resources/roc.png" alt="MLP Training"></p>
+        <p>When choosing a threshold that tried to balance True Postives and True Negatives equally, our predictions produced the following confusion matrix and associated True/False Positive/Negative rates:
+        <img src="/Resources/confusion_matrix.png" alt="MLP Training">
+        <img src="/Resources/rates.png" alt="MLP Training"></p>
+    </body>
+    
+    <br><br>
+
+    <body>
+        <h2 id="acknowledgment">Acknowledgment</h2>
+        <p>We would like to acknowledge the contributions of the Hum staff, specifically Dr. Will Fortin, Niall Little, and Dylan DiGioia, to this project. We would also like to thank our capstone advisor, Dr. Judy Fox, for her assistance with this project.</p>
+    </body>
 </html>
