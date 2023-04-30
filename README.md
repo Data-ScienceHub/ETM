@@ -6,7 +6,7 @@
 
 Using first-party data collected from the customer data platform (CDP) Hum, we developed a model that can accurately classify the online readers of an academic publisher as being high- or low-quality based on their early-stage engagement profiles. Hum’s relational database contains over a dozen tables and almost 100 features in total. Using these tables, we engineered four new variables to serve as the basis of our analysis that illuminate differences between high-value and low-value user behavior. Through a combination of k-means clustering for determining training labels and a multilayer perceptron (MLP) for predicting which of our client’s users belong to each cluster, we were able to identify what characteristics are indicative of high- versus low-quality engagement. We also demonstrated our model’s ability to distinguish between these two profile types off of only a small volume of user data.
 
-To ensure our analysis was interpretable and marketable for our sponsor, we purposefully limited our classification to two clusters. This enabled us to see striking patterns across the four features in question that strongly resembled the tendencies of a good user: a low number of articles read per event (signifies deeper engagement levels), a lower percentage of content that was reached through Google (as opposed to a more scholarly source such as PubMed or the publisher themselves), a lower percentage of content read that was an article (indicates engagement with figures and tables), and a high number of events performed per day engaging with the platform. Our MLP model leverages these four features derived from the users’ first 16 events (which is roughly equivalent to four total article reads due to the nature of how events are being tracked in the platform), and, based solely upon these features from the first 16 events, our MLP model is able to predict whether a user is high- or low-quality with 94% accuracy. While the innovative data cleaning and impressive model performance produced through this project are valuable on their own, these developments are additionally exciting as the engineered features and this model framework will now be able to serve as foundational components in the burgeoning field of digital academic publisher engagement.
+To ensure our analysis was interpretable and marketable for our sponsor, we purposefully limited our classification to two clusters. This enabled us to see striking patterns across the four features in question that strongly resembled the tendencies of a good user: a low number of articles read per event (signifies deeper engagement levels), a lower percentage of content that was reached through Google (as opposed to a more scholarly source such as PubMed or the publisher themselves), a lower percentage of content read that was an article (indicates engagement with figures and tables), and a high number of events performed per day engaging with the platform. Our MLP model leverages these four features derived from the users’ first 16 events (which is roughly equivalent to four total article reads due to the nature of how events are being tracked in the platform), and, based solely upon these features from the first 16 events, our MLP model is able to predict whether a user is high- or low-quality with 95% accuracy. While the innovative data cleaning and impressive model performance produced through this project are valuable on their own, these developments are additionally exciting as the engineered features and this model framework will now be able to serve as foundational components in the burgeoning field of digital academic publisher engagement.
 
 ## Primary Repository Contents
 
@@ -200,22 +200,10 @@ We would like to acknowledge the contributions of the Hum staff, specifically Dr
     * eda.py
     * eda_features.ipynb
     * env-format.txt
-  * lib/
-    * aws_helper.py
-    * file_helper.py
-    * models.py
-    * snowpark_conn.py
-    * snowpark_runner.py
-  * notebooks/
-    * classification.ipynb
-    * clustering.ipynb
-    * data_extraction.ipynb
-    * de_requirements.txt
   * resources/
     * aws_exeuction_role.png
     * aws_sagemaker_notebook.png
     * aws_tags.png
-  * AWS_setup.md
   * ClusterAnalysis.ipynb
   * FinalModel.ipynb
   * HumMLP.ipynb
@@ -236,6 +224,19 @@ We would like to acknowledge the contributions of the Hum staff, specifically Dr
   * training_labels.csv
 
 * Final/
+  * AWS
+    * lib/
+      * aws_helper.py
+      * file_helper.py
+      * models.py
+      * snowpark_conn.py
+      * snowpark_runner.py
+    * notebooks/
+      * classification.ipynb
+      * clustering.ipynb
+      * data_extraction.ipynb
+      * de_requirements.txt
+    * AWS_setup.py
   * Classification/
     * Classification.ipynb
     * reached_16_first_16.csv
@@ -243,13 +244,14 @@ We would like to acknowledge the contributions of the Hum staff, specifically Dr
   * Clustering/
     * Clustering.ipynb
     * reached_16_all.csv
+  * Deliverables/
+    * Capstone Final Presentation.pdf
+    * Capstone Poster.pdf
+    * Final Report.pdf
 
 * Resources/
   * 02-13Update.pdf
-  * 2022-02-19 New Model Proposal v2.pptx
-  * 2023-01-29 DS6013 Project Proposal.pdf
   * Budget Proposal.pdf
-  * Capstone Slides.pdf
   * CapstoneProjectBudget.pdf
   * DS6013 Capstone Project Proposal.pdf
   * EngagementTimeMachine_ProgressReport1.pdf
@@ -269,5 +271,46 @@ We would like to acknowledge the contributions of the Hum staff, specifically Dr
   * roc.png
   * training.png
 
+* css/
+  * Ernest&Emily.otf
+  * SVG_Trade_Gothic_XBold.otf
+  * controls.css
+  * custom.css
+  * frame.css
+  * widgets.css
+
+* static/
+  * css/
+    * bulma-carousel.min.css
+    * bulma-slider.min.css
+    * bulma.min.css
+    * fontawesome.all.min.css
+    * index.css
+  * images/
+    * ccd16.png
+    * cluster.png
+    * cm.png
+    * contentT.png
+    * data.png
+    * evals.png
+    * evecs.png
+    * eventT.png
+    * mlp.png
+    * msds.png
+    * pca.png
+    * pipe.png
+    * profile.png
+    * profileT.png
+    * roc.png
+    * team.png
+    * train.png
+    * varprop.png
+  * js/
+    * bulma-carousel.min.js
+    * bulma-slider.min.js
+    * fontawesome.all.min.js
+    * index.js
+
 * .gitignore
 * README.md
+* index.html
