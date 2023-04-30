@@ -12,13 +12,13 @@ To ensure our analysis was interpretable and marketable for our sponsor, we purp
 
 * Code_Archive
   * Notebooks produced during the course of this project that document various iterations and previous versions of our model and codebase
-  * (Note: Hum developers should also refer to the `/lib/` and `/notebooks/` folders located inside for our fully integrated final models)
 
 * Data_Archive
   * A collection of .csv files used in the training and testing of some of our early-stage models
 
 * Final
   * The code, data, and documentation for our final model
+  * (Note: Hum developers should also refer to the `/AWS/lib/` and `/AWS/notebooks/` folders located inside for our fully integrated final models)
 
 * Resources
   * Documents chronicling our progress over the course of the year and supplemental administrative materials related to our team's composition and organization
@@ -118,7 +118,7 @@ Our project will mainly use the **Event**, **Profile**, and **Content** tables
 
 ### Query Columns
 
-- Final queries used can be found at `/Code/lib/snowpark_runner.py`
+- Final queries used can be found at `/Final/AWS/lib/snowpark_runner.py`
 
 - Difference between classification & clustering queries:
     - Classification: comptues features using the first **X** events of a user
@@ -160,7 +160,7 @@ Final features used in the model:
 
 ## Models
 
-Hum employees or individuals with access to Hum's Snowflake and AWS systems should refer to the code located in `/Code_Archive/lib/models.py` and `/Code_Archive/notebooks/` for our fully integrated and packaged Python models and Jupyter notebooks, respectively.
+Hum employees or individuals with access to Hum's Snowflake and AWS systems should refer to the code located in `/Final/AWS/lib/models.py` and `/Final/AWS/notebooks/` for our fully integrated and packaged Python models and Jupyter notebooks, respectively.
 
 For everyone else, however, the methodology and results of our model can be reproduced locally using the files located in `/Final/`, and the following sections will outline how to sequentially perform the appropriate clustering and classification using static datasets which were previously extracted from Snowflake.
 
