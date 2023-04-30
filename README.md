@@ -8,7 +8,6 @@ Using first-party data collected from the customer data platform (CDP) Hum, we d
 
 To ensure our analysis was interpretable and marketable for our sponsor, we purposefully limited our classification to two clusters. This enabled us to see striking patterns across the four features in question that strongly resembled the tendencies of a good user: a low number of articles read per event (signifies deeper engagement levels), a lower percentage of content that was reached through Google (as opposed to a more scholarly source such as PubMed or the publisher themselves), a lower percentage of content read that was an article (indicates engagement with figures and tables), and a high number of events performed per day engaging with the platform. Our MLP model leverages these four features derived from the users’ first 16 events (which is roughly equivalent to four total article reads due to the nature of how events are being tracked in the platform), and, based solely upon these features from the first 16 events, our MLP model is able to predict whether a user is high- or low-quality with 94% accuracy. While the innovative data cleaning and impressive model performance produced through this project are valuable on their own, these developments are additionally exciting as the engineered features and this model framework will now be able to serve as foundational components in the burgeoning field of digital academic publisher engagement.
 
-
 ## Primary Repository Contents
 
 * Code_Archive
@@ -28,9 +27,9 @@ To ensure our analysis was interpretable and marketable for our sponsor, we purp
 
 Data will be accesed through **Snowflake** and **Snowpark**
 
-### Schema
+<!-- ### Schema
 
-Below is the schema provided by Hum:
+Below is the schema provided by Hum: -->
 
 <!-- ![Hum Schema](/Data_Archive/hum_schema.png) -->
 
@@ -157,6 +156,8 @@ Final features used in the model:
 - `PERCENT_ARTICLE_CONTENT`
 - `EVENT_DENSITY`
 
+![MLP Training](/static/images/data.png)
+
 ## Models
 
 Hum employees or individuals with access to Hum's Snowflake and AWS systems should refer to the code located in `/Code_Archive/lib/models.py` and `/Code_Archive/notebooks/` for our fully integrated and packaged Python models and Jupyter notebooks, respectively.
@@ -179,11 +180,10 @@ Our MLP model was able to quickly converge to a stable parameterization and achi
 ![MLP Training](/static/images/train.png)
 
 The soft prediction scores for hold-out validation set corresponded to the following ROC curve with an AUC of 0.96:
-![MLP Training](/Resources/roc.png)
+![ROC Curve](/static/images/roc.png)
 
 When choosing a threshold that tried to balance True Postives and True Negatives equally, our predictions produced the following confusion matrix and associated True/False Positive/Negative rates:
-![MLP Training](/Resources/confusion_matrix.png)
-![MLP Training](/Resources/rates.png)
+![Confusion Matrix](/static/images/cm.png)
 
 ## Acknowledgment
 
