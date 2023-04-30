@@ -176,7 +176,7 @@ Once the training labels were generated, we constructed an MLP model to perform 
 The final results and performance metrics from our model are summarized by the graphics below.
 
 Our MLP model was able to quickly converge to a stable parameterization and achieve an accuracy of 94% after less than 10 epochs:
-![MLP Training](/Resources/training.png)
+![MLP Training](/static/images/train.png)
 
 The soft prediction scores for hold-out validation set corresponded to the following ROC curve with an AUC of 0.96:
 ![MLP Training](/Resources/roc.png)
