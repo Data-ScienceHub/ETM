@@ -175,16 +175,19 @@
                                         <div class="item blend-img-item">
                                             <img class="center-image-carousel blend-img-background" src="static/images/eventT.png" alt="Event table from schema"/>
                                             <h2 class="subtitle has-text-centered">
+                                                Event table from schema
                                             </h2>
                                         </div>
                                         <div class="item blend-img-item">
                                             <img class="center-image-carousel blend-img-background" src="static/images/contentT.png" alt="Content table from schema"/>
                                             <h2 class="subtitle has-text-centered blend-img-background">
+                                                Content table from schema
                                             </h2>
                                         </div>
                                         <div class="item blend-img-item">
                                             <img class="center-image-carousel blend-img-background" src="static/images/profileT.png" alt="Profile table from schema"/>
                                             <h2 class="subtitle has-text-centered blend-img-background">
+                                                Profile table from schema
                                             </h2>
                                         </div>
                                     </div>
@@ -209,7 +212,7 @@
                                     To accomplish our goal of predicting user-level future engagement, we first had to figure out what constitutes the behavior of a high-quality user. By consolidating and linking the germane information from the Content, Event, and Profile tables in our database, we were able to collect not only the events and their timestamps but also robust contextual information. This included data on the content that the event pertained to (i.e. using identifying information such as the URL), what type of content it was (e.g. whether it was an abstract, an article, a figure, etc.), and where the content was reached from (e.g. Google, direct link, same journal navigation, external journal link, etc.). Through feature engineering, we were able to derive four primary features which we believed would be highly valuable metrics with regards to online publication engagement; these four features were the number of articles read per event, the percentage of articles reached through Google (as opposed to a more scholarly source), the percentage of content the user read that is an article, and the number of events a user performed per day on the platform.
                                     <br>
                                     <br>
-                                    <img src="static/images/data.png" alt="Feature engineering graphic" class="center-image" height="200"/>
+                                    <img src="static/images/data.png" alt="Feature engineering graphic" class="center-image" height="200px"/>
                                     <br>
                                     Although there have not been previously documented accounts of the usage of these specific measurements, through discussions with our sponsor, we were able to conclude that high- versus low-quality users should display starkly different distributions across this feature space. For instance, high-quality users would interact with fewer articles per event and have a lower percentage of their content being articles since these behaviors would suggest more thorough involvement with supplemental material such as abstracts and figures. These high-quality users would also be less likely to come from Google if they are more invested in seeking content from scholarly sources, and they would perform more events per day since this is clearly a sign of more active and regular engagement. Therefore, these four new features were chosen to comprise the input layer of our MLP. Fig. 1 describes the model structure in detail.
                                     <br>
