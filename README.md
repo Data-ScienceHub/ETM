@@ -295,6 +295,7 @@ We would like to acknowledge the contributions of the Hum staff, specifically Dr
     * evals.png
     * evecs.png
     * eventT.png
+    * favicon.ico
     * mlp.png
     * msds.png
     * pca.png
