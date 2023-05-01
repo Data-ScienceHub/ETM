@@ -313,5 +313,6 @@ We would like to acknowledge the contributions of the Hum staff, specifically Dr
     * index.js
 
 * .gitignore
+* LICENSE
 * README.md
 * index.html
